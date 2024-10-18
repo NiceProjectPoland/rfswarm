@@ -483,26 +483,26 @@ Verify the Content Of the DOCX Report
 		END
 	END
 	# [0] equals first data row
-	@{err_1_table_0} 	Convert To List 	${docx_tables}[7][0]
-	VAR 	@{err_1_table_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot 	Count: 	4
-	Lists Should Be Equal 	${err_1_table_0_expected} 	${err_1_table_0}	msg=[ Expected != Converted ]
+	@{err_1_row_0} 	Convert To List 	${docx_tables}[7][0]
+	VAR 	@{err_1_row_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot 	Count: 	4
+	Lists Should Be Equal 	${err_1_row_0_expected} 	${err_1_row_0}	msg=[ Expected != Converted ]
 	# [-1] equals last row
-	@{err_1_table_-1} 	Convert To List 	${docx_tables}[7][-1]
-	VAR 	@{err_1_table_-1_expected} 		Screenshot: 	${EMPTY}
-	Lists Should Be Equal 	${err_1_table_-1_expected} 	${err_1_table_-1}	msg=[ Expected != Converted ]
+	@{err_1_row_-1} 	Convert To List 	${docx_tables}[7][-1]
+	VAR 	@{err_1_row_-1_expected} 		Screenshot: 	${EMPTY}
+	Lists Should Be Equal 	${err_1_row_-1_expected} 	${err_1_row_-1}	msg=[ Expected != Converted ]
 	# [10] equals quater row
-	@{err_1_table_10} 	Convert To List 	${docx_tables}[7][10]
-	VAR 	@{err_1_table_10_expected} 		Error: 	Text 'Scheduled Date' did not appear in 2 minutes. 	Count: 	2
-	Lists Should Be Equal 	${err_1_table_10_expected} 	${err_1_table_10}	msg=[ Expected != Converted ]
+	@{err_1_row_10} 	Convert To List 	${docx_tables}[7][10]
+	VAR 	@{err_1_row_10_expected} 		Error: 	Text 'Scheduled Date' did not appear in 2 minutes. 	Count: 	2
+	Lists Should Be Equal 	${err_1_row_10_expected} 	${err_1_row_10}	msg=[ Expected != Converted ]
 	# [15] equals middle row
-	@{err_1_table_15} 	Convert To List 	${docx_tables}[7][15]
-	VAR 	@{err_1_table_15_expected} 		
+	@{err_1_row_15} 	Convert To List 	${docx_tables}[7][15]
+	VAR 	@{err_1_row_15_expected} 		
 	...    Result: 	Text 'Requests for Quotation' did not appear in 2 minutes. 	Test: 	Odoo Process RFQs 	Script: 	Odoo.robot 	Count: 	1
-	Lists Should Be Equal 	${err_1_table_15_expected} 	${err_1_table_15}	msg=[ Expected != Converted ]
+	Lists Should Be Equal 	${err_1_row_15_expected} 	${err_1_row_15}	msg=[ Expected != Converted ]
 	# [20] equals upper middle row
-	@{err_1_table_20} 	Convert To List 	${docx_tables}[7][20]
-	VAR 	@{err_1_table_20_expected} 		Screenshot: 	${EMPTY}
-	Lists Should Be Equal 	${err_1_table_20_expected} 	${err_1_table_20}	msg=[ Expected != Converted ]
+	@{err_1_row_20} 	Convert To List 	${docx_tables}[7][20]
+	VAR 	@{err_1_row_20_expected} 		Screenshot: 	${EMPTY}
+	Lists Should Be Equal 	${err_1_row_20_expected} 	${err_1_row_20}	msg=[ Expected != Converted ]
 
 	Dictionary Should Contain Key 	${docx_paragraphs} 	23 Error Details No Screenshots
 	Log 	Error Details Table content: ${docx_tables}[8]
@@ -517,25 +517,25 @@ Verify the Content Of the DOCX Report
 		END
 	END
 	# [0] equals first data row
-	@{err_2_table_0} 	Convert To List 	${docx_tables}[8][0]
-	VAR 	@{err_2_table_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot  Count: 	4
-	Lists Should Be Equal 	${err_2_table_0_expected} 	${err_2_table_0}	msg=[ Expected != Converted ]
+	@{err_2_row_0} 	Convert To List 	${docx_tables}[8][0]
+	VAR 	@{err_2_row_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot  Count: 	4
+	Lists Should Be Equal 	${err_2_row_0_expected} 	${err_2_row_0}	msg=[ Expected != Converted ]
 	# [-1] equals last row
-	@{err_2_table_-1} 	Convert To List 	${docx_tables}[8][-1]
-	VAR 	@{err_2_table_-1_expected} 		Error: 	Text 'Scheduled Date' did not appear in 2 minutes. 	Count: 	1
-	Lists Should Be Equal 	${err_2_table_-1_expected} 	${err_2_table_-1}	msg=[ Expected != Converted ]
+	@{err_2_row_-1} 	Convert To List 	${docx_tables}[8][-1]
+	VAR 	@{err_2_row_-1_expected} 		Error: 	Text 'Scheduled Date' did not appear in 2 minutes. 	Count: 	1
+	Lists Should Be Equal 	${err_2_row_-1_expected} 	${err_2_row_-1}	msg=[ Expected != Converted ]
 	# [5] equals quater row
-	@{err_2_table_5} 	Convert To List 	${docx_tables}[8][5]
-	VAR 	@{err_2_table_5_expected} 		Error: 	Text 'Inventory Overview' did not appear in 2 minutes. 	Count: 	3
-	Lists Should Be Equal 	${err_2_table_5_expected} 	${err_2_table_5}	msg=[ Expected != Converted ]
+	@{err_2_row_5} 	Convert To List 	${docx_tables}[8][5]
+	VAR 	@{err_2_row_5_expected} 		Error: 	Text 'Inventory Overview' did not appear in 2 minutes. 	Count: 	3
+	Lists Should Be Equal 	${err_2_row_5_expected} 	${err_2_row_5}	msg=[ Expected != Converted ]
 	# [11] equals middle row
-	@{err_2_table_11} 	Convert To List 	${docx_tables}[8][11]
-	VAR 	@{err_2_table_11_expected} 		Error: 	Text 'Requests for Quotation' did not appear in 2 minutes. 	Count: 	1
-	Lists Should Be Equal 	${err_2_table_11_expected} 	${err_2_table_11}	msg=[ Expected != Converted ]
+	@{err_2_row_11} 	Convert To List 	${docx_tables}[8][11]
+	VAR 	@{err_2_row_11_expected} 		Error: 	Text 'Requests for Quotation' did not appear in 2 minutes. 	Count: 	1
+	Lists Should Be Equal 	${err_2_row_11_expected} 	${err_2_row_11}	msg=[ Expected != Converted ]
 	# [16] equals upper middle row
-	@{err_2_table_16} 	Convert To List 	${docx_tables}[8][16]
-	VAR 	@{err_2_table_16_expected} 		Result: 	Odoo Confirm RFQ 	Test: 	Odoo Process RFQs 	Script: 	Odoo.robot 	Count: 	1
-	Lists Should Be Equal 	${err_2_table_16_expected} 	${err_2_table_16}	msg=[ Expected != Converted ]
+	@{err_2_row_16} 	Convert To List 	${docx_tables}[8][16]
+	VAR 	@{err_2_row_16_expected} 		Result: 	Odoo Confirm RFQ 	Test: 	Odoo Process RFQs 	Script: 	Odoo.robot 	Count: 	1
+	Lists Should Be Equal 	${err_2_row_16_expected} 	${err_2_row_16}	msg=[ Expected != Converted ]
 
 	Dictionary Should Contain Key 	${docx_paragraphs} 	24 Error Details No GBRN
 	Log 	Error Details Table content: ${docx_tables}[9]
@@ -550,17 +550,17 @@ Verify the Content Of the DOCX Report
 		END
 	END
 	# [0] equals first data row
-	@{err_3_table_0} 	Convert To List 	${docx_tables}[9][0]
-	VAR 	@{err_3_table_0_expected} 		Error: 	Text 'New' did not appear in 2 minutes. 	Count: 	14
-	Lists Should Be Equal 	${err_3_table_0_expected} 	${err_3_table_0}	msg=[ Expected != Converted ]
+	@{err_3_row_0} 	Convert To List 	${docx_tables}[9][0]
+	VAR 	@{err_3_row_0_expected} 		Error: 	Text 'New' did not appear in 2 minutes. 	Count: 	14
+	Lists Should Be Equal 	${err_3_row_0_expected} 	${err_3_row_0}	msg=[ Expected != Converted ]
 	# [-1] equals last row
-	@{err_3_table_-1} 	Convert To List 	${docx_tables}[9][-1]
-	VAR 	@{err_3_table_-1_expected} 		Screenshot: 	${EMPTY}
-	Lists Should Be Equal 	${err_3_table_-1_expected} 	${err_3_table_-1}	msg=[ Expected != Converted ]
+	@{err_3_row_-1} 	Convert To List 	${docx_tables}[9][-1]
+	VAR 	@{err_3_row_-1_expected} 		Screenshot: 	${EMPTY}
+	Lists Should Be Equal 	${err_3_row_-1_expected} 	${err_3_row_-1}	msg=[ Expected != Converted ]
 	# [4] equals middle row
-	@{err_3_table_4} 	Convert To List 	${docx_tables}[9][4]
-	VAR 	@{err_3_table_4_expected} 		Error: 	Text 'Requests for Quotation' did not appear in 2 minutes. 	Count: 	2
-	Lists Should Be Equal 	${err_3_table_4_expected} 	${err_3_table_4}	msg=[ Expected != Converted ]
+	@{err_3_row_4} 	Convert To List 	${docx_tables}[9][4]
+	VAR 	@{err_3_row_4_expected} 		Error: 	Text 'Requests for Quotation' did not appear in 2 minutes. 	Count: 	2
+	Lists Should Be Equal 	${err_3_row_4_expected} 	${err_3_row_4}	msg=[ Expected != Converted ]
 
 	Dictionary Should Contain Key 	${docx_paragraphs} 	25 Error Details No GBET
 	Log 	Error Details Table content: ${docx_tables}[10]
@@ -575,25 +575,25 @@ Verify the Content Of the DOCX Report
 		END
 	END
 	# [0] equals first data row
-	@{err_4_table_0} 	Convert To List 	${docx_tables}[10][0]
-	VAR 	@{err_4_table_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot 	Count: 	4
-	Lists Should Be Equal 	${err_4_table_0_expected} 	${err_4_table_0}	msg=[ Expected != Converted ]
+	@{err_4_row_0} 	Convert To List 	${docx_tables}[10][0]
+	VAR 	@{err_4_row_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot 	Count: 	4
+	Lists Should Be Equal 	${err_4_row_0_expected} 	${err_4_row_0}	msg=[ Expected != Converted ]
 	# [-1] equals last row
-	@{err_4_table_-1} 	Convert To List 	${docx_tables}[10][-1]
-	VAR 	@{err_4_table_-1_expected} 		Screenshot: 	${EMPTY}
-	Lists Should Be Equal 	${err_4_table_-1_expected} 	${err_4_table_-1}	msg=[ Expected != Converted ]
+	@{err_4_row_-1} 	Convert To List 	${docx_tables}[10][-1]
+	VAR 	@{err_4_row_-1_expected} 		Screenshot: 	${EMPTY}
+	Lists Should Be Equal 	${err_4_row_-1_expected} 	${err_4_row_-1}	msg=[ Expected != Converted ]
 	# [12] equals quater row
-	@{err_4_table_12} 	Convert To List 	${docx_tables}[10][12]
-	VAR 	@{err_4_table_12_expected} 		Error: 	Text 'Salesperson' did not appear in 2 minutes.
-	Lists Should Be Equal 	${err_4_table_12_expected} 	${err_4_table_12}	msg=[ Expected != Converted ]
+	@{err_4_row_12} 	Convert To List 	${docx_tables}[10][12]
+	VAR 	@{err_4_row_12_expected} 		Error: 	Text 'Salesperson' did not appear in 2 minutes.
+	Lists Should Be Equal 	${err_4_row_12_expected} 	${err_4_row_12}	msg=[ Expected != Converted ]
 	# [24] equals middle row
-	@{err_4_table_24} 	Convert To List 	${docx_tables}[10][24]
-	VAR 	@{err_4_table_24_expected} 		Error: 	Text 'Scheduled Date' did not appear in 2 minutes.
-	Lists Should Be Equal 	${err_4_table_24_expected} 	${err_4_table_24}	msg=[ Expected != Converted ]
+	@{err_4_row_24} 	Convert To List 	${docx_tables}[10][24]
+	VAR 	@{err_4_row_24_expected} 		Error: 	Text 'Scheduled Date' did not appear in 2 minutes.
+	Lists Should Be Equal 	${err_4_row_24_expected} 	${err_4_row_24}	msg=[ Expected != Converted ]
 	# [36] equals upper middle row
-	@{err_4_table_36} 	Convert To List 	${docx_tables}[10][36]
-	VAR 	@{err_4_table_36_expected} 		Screenshot: 	${EMPTY}
-	Lists Should Be Equal 	${err_4_table_36_expected} 	${err_4_table_36}	msg=[ Expected != Converted ]
+	@{err_4_row_36} 	Convert To List 	${docx_tables}[10][36]
+	VAR 	@{err_4_row_36_expected} 		Screenshot: 	${EMPTY}
+	Lists Should Be Equal 	${err_4_row_36_expected} 	${err_4_row_36}	msg=[ Expected != Converted ]
 
 	Dictionary Should Contain Key 	${docx_paragraphs} 	26 Error Details Polish Lang
 	Log 	Error Details Table content: ${docx_tables}[11]
@@ -608,25 +608,25 @@ Verify the Content Of the DOCX Report
 		END
 	END
 	# [0] equals first data row
-	@{err_5_table_0} 	Convert To List 	${docx_tables}[11][0]
-	VAR 	@{err_5_table_0_expected} 		Nazwa Wyniku: 	Odoo Create Sale 	Test: 	Odoo Sales 	Skrypt:	Odoo.robot
-	Lists Should Be Equal 	${err_5_table_0_expected} 	${err_5_table_0}	msg=[ Expected != Converted ]
+	@{err_5_row_0} 	Convert To List 	${docx_tables}[11][0]
+	VAR 	@{err_5_row_0_expected} 		Nazwa Wyniku: 	Odoo Create Sale 	Test: 	Odoo Sales 	Skrypt:	Odoo.robot
+	Lists Should Be Equal 	${err_5_row_0_expected} 	${err_5_row_0}	msg=[ Expected != Converted ]
 	# [-1] equals last row
-	@{err_5_table_-1} 	Convert To List 	${docx_tables}[11][-1]
-	VAR 	@{err_5_table_-1_expected} 		Błąd: 	Text 'Scheduled Date' did not appear in 2 minutes.
-	Lists Should Be Equal 	${err_5_table_-1_expected} 	${err_5_table_-1}	msg=[ Expected != Converted ]
+	@{err_5_row_-1} 	Convert To List 	${docx_tables}[11][-1]
+	VAR 	@{err_5_row_-1_expected} 		Błąd: 	Text 'Scheduled Date' did not appear in 2 minutes.
+	Lists Should Be Equal 	${err_5_row_-1_expected} 	${err_5_row_-1}	msg=[ Expected != Converted ]
 	# [10] equals quater row
-	@{err_5_table_10} 	Convert To List 	${docx_tables}[11][10]
-	VAR 	@{err_5_table_10_expected} 		Nazwa Wyniku: 	Odoo Create Sale 	Test: 	Odoo Sales 	Skrypt: 	Odoo.robot
-	Lists Should Be Equal 	${err_5_table_10_expected} 	${err_5_table_10}	msg=[ Expected != Converted ]
+	@{err_5_row_10} 	Convert To List 	${docx_tables}[11][10]
+	VAR 	@{err_5_row_10_expected} 		Nazwa Wyniku: 	Odoo Create Sale 	Test: 	Odoo Sales 	Skrypt: 	Odoo.robot
+	Lists Should Be Equal 	${err_5_row_10_expected} 	${err_5_row_10}	msg=[ Expected != Converted ]
 	# [19] equals middle row
-	@{err_5_table_19} 	Convert To List 	${docx_tables}[11][19]
-	VAR 	@{err_5_table_19_expected} 		Błąd: 	Button with locator 'Validate' not found.
-	Lists Should Be Equal 	${err_5_table_19_expected} 	${err_5_table_19}	msg=[ Expected != Converted ]
+	@{err_5_row_19} 	Convert To List 	${docx_tables}[11][19]
+	VAR 	@{err_5_row_19_expected} 		Błąd: 	Button with locator 'Validate' not found.
+	Lists Should Be Equal 	${err_5_row_19_expected} 	${err_5_row_19}	msg=[ Expected != Converted ]
 	# [29] equals upper middle row
-	@{err_5_table_29} 	Convert To List 	${docx_tables}[11][29]
-	VAR 	@{err_5_table_29_expected} 		Błąd: 	Text 'Requests for Quotation' did not appear in 2 minutes.
-	Lists Should Be Equal 	${err_5_table_29_expected} 	${err_5_table_29}	msg=[ Expected != Converted ]
+	@{err_5_row_29} 	Convert To List 	${docx_tables}[11][29]
+	VAR 	@{err_5_row_29_expected} 		Błąd: 	Text 'Requests for Quotation' did not appear in 2 minutes.
+	Lists Should Be Equal 	${err_5_row_29_expected} 	${err_5_row_29}	msg=[ Expected != Converted ]
 
 	Dictionary Should Contain Key 	${docx_paragraphs} 	27 Error Details ST ET
 	Log 	Error Details Table content: ${docx_tables}[12]
@@ -641,25 +641,25 @@ Verify the Content Of the DOCX Report
 		END
 	END
 	# [0] equals first data row
-	@{err_6_table_0} 	Convert To List 	${docx_tables}[12][0]
-	VAR 	@{err_6_table_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot 	Count: 	2
-	Lists Should Be Equal 	${err_6_table_0_expected} 	${err_6_table_0}	msg=[ Expected != Converted ]
+	@{err_6_row_0} 	Convert To List 	${docx_tables}[12][0]
+	VAR 	@{err_6_row_0_expected} 		Result: 	Odoo Create Sale 	Test: 	Odoo Sales 	Script: 	Odoo.robot 	Count: 	2
+	Lists Should Be Equal 	${err_6_row_0_expected} 	${err_6_row_0}	msg=[ Expected != Converted ]
 	# [-1] equals last row
-	@{err_6_table_-1} 	Convert To List 	${docx_tables}[12][-1]
-	VAR 	@{err_6_table_-1_expected} 		Screenshot: 	${EMPTY}
-	Lists Should Be Equal 	${err_6_table_-1_expected} 	${err_6_table_-1}	msg=[ Expected != Converted ]
+	@{err_6_row_-1} 	Convert To List 	${docx_tables}[12][-1]
+	VAR 	@{err_6_row_-1_expected} 		Screenshot: 	${EMPTY}
+	Lists Should Be Equal 	${err_6_row_-1_expected} 	${err_6_row_-1}	msg=[ Expected != Converted ]
 	# [3] equals quater row
-	@{err_6_table_3} 	Convert To List 	${docx_tables}[12][3]
-	VAR 	@{err_6_table_3_expected} 		Result: 	Odoo Open Delivery Orders 	Test: 	Odoo Deliveries 	Script: 	Odoo.robot 	Count: 	1
-	Lists Should Be Equal 	${err_6_table_3_expected} 	${err_6_table_3}	msg=[ Expected != Converted ]
+	@{err_6_row_3} 	Convert To List 	${docx_tables}[12][3]
+	VAR 	@{err_6_row_3_expected} 		Result: 	Odoo Open Delivery Orders 	Test: 	Odoo Deliveries 	Script: 	Odoo.robot 	Count: 	1
+	Lists Should Be Equal 	${err_6_row_3_expected} 	${err_6_row_3}	msg=[ Expected != Converted ]
 	# [5] equals middle row
-	@{err_6_table_5} 	Convert To List 	${docx_tables}[12][5]
-	VAR 	@{err_6_table_5_expected} 		Screenshot: 	${EMPTY}
-	Lists Should Be Equal 	${err_6_table_5_expected} 	${err_6_table_5}	msg=[ Expected != Converted ]
+	@{err_6_row_5} 	Convert To List 	${docx_tables}[12][5]
+	VAR 	@{err_6_row_5_expected} 		Screenshot: 	${EMPTY}
+	Lists Should Be Equal 	${err_6_row_5_expected} 	${err_6_row_5}	msg=[ Expected != Converted ]
 	# [20] equals upper middle row
-	@{err_6_table_7} 	Convert To List 	${docx_tables}[12][7]
-	VAR 	@{err_6_table_7_expected} 		Error: 	Button with locator 'Validate' not found. 	Count: 	1
-	Lists Should Be Equal 	${err_6_table_7_expected} 	${err_6_table_7}	msg=[ Expected != Converted ]
+	@{err_6_row_7} 	Convert To List 	${docx_tables}[12][7]
+	VAR 	@{err_6_row_7_expected} 		Error: 	Button with locator 'Validate' not found. 	Count: 	1
+	Lists Should Be Equal 	${err_6_row_7_expected} 	${err_6_row_7}	msg=[ Expected != Converted ]
 
 	[Teardown] 	Run Keywords
 	...    Close GUI	AND

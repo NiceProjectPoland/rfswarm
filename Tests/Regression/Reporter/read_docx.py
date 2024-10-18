@@ -93,7 +93,6 @@ def extract_tables_from_docx(docx_path: str) -> list:
     """
     Extract all tables from DOCX one by one.
     Returns nested lists of tables.
-    Note: For RFSwarm DOCX raport the first value of each row will be empty.
     """
     doc = Document(docx_path)
     tables = []
