@@ -86,41 +86,45 @@ Create New Section
 	Wait For		${img} 	 timeout=300
 	Take A Screenshot
 
-	IF 	$platform == 'macos'
-		# Type 		${sectname}
-		# Sleep    2
-		# Take A Screenshot
-		Press Combination 	Key.Tab
-		# Click Image		${img}
-		Sleep    2
-		Take A Screenshot
-		Click To The Below Of Image 	${img} 	20
-		Sleep    2
-		Take A Screenshot
-		Press Combination 	Key.End
-		Sleep    2
-		Take A Screenshot
-		# Type 		${sectname}
-		# Evaluate 		pyautogui.write('${sectname}', interval=0.10)		modules=pyautogui
-		# try keyboard.write('The quick brown fox jumps over the lazy dog.')
-		# Evaluate 		keyboard.write('${sectname}') 		modules=keyboard
-		# try pynput.keyboard.Controller
-		Evaluate 		pynput.keyboard.Controller().type('${sectname}') 		modules=pynput.keyboard
-		Sleep    2
-		Take A Screenshot
-		Sleep    2
-		Click Button 			OK
-		Take A Screenshot
+	Click To The Below Of Image 	${img} 	20
+	Evaluate 	clipboard.copy("${sectname}") 	modules=clipboard
+	IF  "${platform}" == "macos"
+		Press Combination	KEY.command		KEY.v
 	ELSE
-		Click To The Below Of Image 	${img} 	20
-		# Sleep    2
-		# Take A Screenshot
-		Type 		${sectname}
-		Take A Screenshot
-		# Sleep    2
-		Click Button 			OK
-		# Take A Screenshot
+		Press Combination	KEY.ctrl		KEY.v
 	END
+
+	# IF 	$platform == 'macos'
+	# 	# Type 		${sectname}
+	# 	# Sleep    2
+	# 	# Take A Screenshot
+	# 	Press Combination 	Key.Tab
+	# 	# Click Image		${img}
+	# 	Sleep    2
+	# 	Take A Screenshot
+	# 	Click To The Below Of Image 	${img} 	20
+	# 	Sleep    2
+	# 	Take A Screenshot
+	# 	Press Combination 	Key.End
+	# 	Sleep    2
+	# 	Take A Screenshot
+	# 	# Type 		${sectname}
+	# 	# Evaluate 		pyautogui.write('${sectname}', interval=0.10)		modules=pyautogui
+	# 	# try keyboard.write('The quick brown fox jumps over the lazy dog.')
+	# 	# Evaluate 		keyboard.write('${sectname}') 		modules=keyboard
+	# 	# try pynput.keyboard.Controller
+	# 	Evaluate 		pynput.keyboard.Controller().type('${sectname}') 		modules=pynput.keyboard
+
+	# ELSE
+	# 	Click To The Below Of Image 	${img} 	20
+	# 	Type 		${sectname}
+	# END
+	Sleep    2
+	Take A Screenshot
+	Sleep    2
+	Click Button 			OK
+	Take A Screenshot
+
 
 Click Section
 	[Arguments]		${sectname}
@@ -1494,11 +1498,6 @@ Release Fn Key
 		# https://github.com/asweigart/pyautogui/issues/796
 		${result}= 		Evaluate 	pyautogui.keyUp('fn') 	modules=pyautogui
 		Log    ${result}
-
-
-
-
-
-
+	END
 
 #
