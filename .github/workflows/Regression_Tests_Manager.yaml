@@ -114,7 +114,8 @@ jobs:
       - name: Robot Framework
         id: robottest
         run: >
-          robot --include ${{ env.tag }}
+          robot --listener GHAReports
+          --include ${{ env.tag }}
           --exclude NOT${{ matrix.tag }}
           --outputdir Tests/Regression/Manager/Logs/${{ matrix.platform }}_${{ matrix.python }}_${{ matrix.tag }}
           Tests/Regression/Manager

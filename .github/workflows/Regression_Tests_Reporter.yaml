@@ -143,7 +143,8 @@ jobs:
       - name: Robot Framework
         id: robottest
         run: >
-          robot --include ${{ env.tag }}
+          robot --listener GHAReports
+          --include ${{ env.tag }}
           --outputdir Tests/Regression/Reporter/Logs/${{ matrix.platform }}_${{ matrix.python }}
           Tests/Regression/Reporter
         env:
