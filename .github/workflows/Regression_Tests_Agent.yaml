@@ -72,11 +72,16 @@ jobs:
           --outputdir Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}
           Tests/Regression/Agent
 
+      - name: Change output.xml file name
+        run: >
+          mv Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output.xml
+          Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
+
       - name: Upload XML artifact
         uses: actions/upload-artifact@v4
         with:
           name: agent-XMLdata-${{ matrix.platform }}-${{ matrix.python }}
-          path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output.xml
+          path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
           retention-days: 3
 
       - name: Archive Agent Logs
