@@ -73,11 +73,11 @@ jobs:
           Tests/Regression/Agent
 
       - name: Upload XML artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3 # In v3, Artifacts are mutable
         with:
-          name: Agent-XMLdata-${{ matrix.platform }}-${{ matrix.python }}
+          name: agent-XMLdata
           path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output.xml
-          retention-days: 1
+          retention-days: 3
 
       - name: Archive Agent Logs
         if: ${{ success() }}
@@ -95,32 +95,25 @@ jobs:
           path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}
           retention-days: 90
 
-  Collect-xml-artifacts:
-    runs-on: ubuntu-latest
-    needs: Agent
-    strategy:
-      matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
-        python: ['3.9', '3.10', '3.11', '3.12', '3.13']
-    steps:
-      - name: Build artifact name
-        id: vars
-        run: echo "name=Agent-XMLdata-${{ matrix.platform }}-${{ matrix.python }}" >> $GITHUB_OUTPUT
+  # Collect-xml-artifacts:
+  #   runs-on: ubuntu-latest
+  #   needs: Agent
+  #   steps:
+  #     - name: Download XML data artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: agent-XMLdata
+  #         path: collected
+  #     - run: ls -R collected
 
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ steps.vars.outputs.name }}
-          path: collected/${{ matrix.platform }}/python${{ matrix.python }}
-
-      - name: Upload merged XMLdata
-        uses: actions/upload-artifact@v4
-        with:
-          name: Agent-XMLdata-ALL
-          path: collected/**/output.xml
+  #     - name: Upload merged XMLdata
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: agent-XMLdata-ALL
+  #         path: collected/**/output.xml
 
   Generate-report:
-    needs: Collect-xml-artifacts
+    needs: Agent
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -133,16 +126,17 @@ jobs:
       - name: Install Dashboard
         run: pip install robotframework-dashboard
 
-      - name: Download all XMLs
-        uses: actions/download-artifact@v4
+      - name: Download XML data artifact
+        uses: actions/download-artifact@v3
         with:
-          name: Agent-XMLdata-ALL
-          path: xml-data
+          name: agent-XMLdata
+          path: collected
+      - run: ls -R collected
 
       - name: Build Dashboard
         run: >
           robotdashboard
-          -f xml-data
+          -f collected
           -n dashboard/Agent/index.html
 
       - name: Deploy subpage to GitHub Pages
