@@ -100,23 +100,6 @@ jobs:
           path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}
           retention-days: 90
 
-  # Collect-xml-artifacts:
-  #   runs-on: ubuntu-latest
-  #   needs: Agent
-  #   steps:
-  #     - name: Download XML data artifact
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: agent-XMLdata
-  #         path: collected
-  #     - run: ls -R collected
-
-  #     - name: Upload merged XMLdata
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: agent-XMLdata-ALL
-  #         path: collected/**/output.xml
-
   Merge-XML-data:
     runs-on: ubuntu-latest
     needs: Agent
