@@ -1,3 +1,2 @@
 robotframework-databaselibrary
 robotframework-httpctrl
-robotframework-ghareports

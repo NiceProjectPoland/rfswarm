@@ -114,7 +114,7 @@ jobs:
       - name: Robot Framework
         id: robottest
         run: >
-          robot --listener GHAReports
+          robot
           --include ${{ env.tag }}
           --exclude NOT${{ matrix.tag }}
           --outputdir Tests/Regression/Manager/Logs/${{ matrix.platform }}_${{ matrix.python }}_${{ matrix.tag }}
@@ -152,3 +152,25 @@ jobs:
           name: Manager-${{ matrix.platform }}-${{ matrix.python }}-${{ matrix.tag }}
           path: Tests/Regression/Manager/Logs/${{ matrix.platform }}_${{ matrix.python }}_${{ matrix.tag }}
           retention-days: 90
+
+      - name: Change output.xml file name
+        run: >
+          mv Tests/Regression/Manager/Logs/${{ matrix.platform }}_${{ matrix.python }}/output.xml
+          Tests/Regression/Manager/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
+
+      - name: Upload XML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: manager-XMLdata-${{ matrix.platform }}-${{ matrix.python }}
+          path: Tests/Regression/Manager/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
+          retention-days: 3
+
+  Merge-XML-data:
+    runs-on: ubuntu-latest
+    needs: Manager
+    steps:
+      - name: Merge Artifacts
+        uses: actions/upload-artifact/merge@v4
+        with:
+          name: manager-XMLdata-ALL
+          pattern: manager-XMLdata-*

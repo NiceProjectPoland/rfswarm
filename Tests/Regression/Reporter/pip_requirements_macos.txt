@@ -24,7 +24,6 @@ robotframework-imagehorizonlibrary
 opencv-python
 Pillow
 robotframework-ocrlibrary
-robotframework-ghareports
 clipboard
 python-docx
 openpyxl

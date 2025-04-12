@@ -67,22 +67,10 @@ jobs:
 
       - name: Robot Framework
         run: >
-          robot --listener GHAReports
+          robot
           --include ${{ env.tag }}
           --outputdir Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}
           Tests/Regression/Agent
-
-      - name: Change output.xml file name
-        run: >
-          mv Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output.xml
-          Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
-
-      - name: Upload XML artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: agent-XMLdata-${{ matrix.platform }}-${{ matrix.python }}
-          path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
-          retention-days: 3
 
       - name: Archive Agent Logs
         if: ${{ success() }}
@@ -99,6 +87,18 @@ jobs:
           name: Agent-${{ matrix.platform }}-${{ matrix.python }}
           path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}
           retention-days: 90
+
+      - name: Change output.xml file name
+        run: >
+          mv Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output.xml
+          Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
+
+      - name: Upload XML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-XMLdata-${{ matrix.platform }}-${{ matrix.python }}
+          path: Tests/Regression/Agent/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
+          retention-days: 3
 
   Merge-XML-data:
     runs-on: ubuntu-latest

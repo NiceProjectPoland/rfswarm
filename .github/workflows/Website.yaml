@@ -41,32 +41,38 @@ jobs:
       - name: Build Agent Dashboard
         run: >
           robotdashboard
+          -d xml_data/Agent/agent-dashboard.db
           -f xml_data/Agent
           -n website/dashboard/Agent/index.html
+          -a True
 
-      # - name: Download Manager XML data artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: manager-XMLdata-ALL
-      #     path: xml_data/Manager
-      # - run: ls -R xml_data/Manager
-      # - name: Build Manager Dashboard
-      #   run: >
-      #     robotdashboard
-      #     -f xml_data/Manager
-      #     -n website/dashboard/Manager/index.html
+      - name: Download Manager XML data artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: manager-XMLdata-ALL
+          path: xml_data/Manager
+      - run: ls -R xml_data/Manager
+      - name: Build Manager Dashboard
+        run: >
+          robotdashboard
+          -d xml_data/Manager/manager-dashboard.db
+          -f xml_data/Manager
+          -n website/dashboard/Manager/index.html
+          -a True
 
-      # - name: Download Reporter XML data artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: reporter-XMLdata-ALL
-      #     path: xml_data/Reporter
-      # - run: ls -R xml_data/Reporter
-      # - name: Build Reporter Dashboard
-      #   run: >
-      #     robotdashboard
-      #     -f xml_data/Reporter
-      #     -n website/dashboard/Reporter/index.html
+      - name: Download Reporter XML data artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: reporter-XMLdata-ALL
+          path: xml_data/Reporter
+      - run: ls -R xml_data/Reporter
+      - name: Build Reporter Dashboard
+        run: >
+          robotdashboard
+          -d xml_data/Reporter/reporter-dashboard.db
+          -f xml_data/Reporter
+          -n website/dashboard/Reporter/index.html
+          -a True
 
       - name: Deploy website to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
