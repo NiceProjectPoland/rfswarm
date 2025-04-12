@@ -23,23 +23,23 @@ jobs:
       - Package_For_PIP
     uses: ./.github/workflows/Regression_Tests_Agent.yaml
 
-  # Regression_Tests_Manager:
-  #   if: needs.Package_For_PIP.outputs.runmanager == 'true'
-  #   needs:
-  #     - Package_For_PIP
-  #   uses: ./.github/workflows/Regression_Tests_Manager.yaml
+  Regression_Tests_Manager:
+    if: needs.Package_For_PIP.outputs.runmanager == 'true'
+    needs:
+      - Package_For_PIP
+    uses: ./.github/workflows/Regression_Tests_Manager.yaml
 
-  # Regression_Tests_Reporter:
-  #   if: needs.Package_For_PIP.outputs.runreporter == 'true'
-  #   needs:
-  #     - Package_For_PIP
-  #   uses: ./.github/workflows/Regression_Tests_Reporter.yaml
+  Regression_Tests_Reporter:
+    if: needs.Package_For_PIP.outputs.runreporter == 'true'
+    needs:
+      - Package_For_PIP
+    uses: ./.github/workflows/Regression_Tests_Reporter.yaml
 
   Website:
     needs:
       - Regression_Tests_Agent
-      # - Regression_Tests_Manager
-      # - Regression_Tests_Reporter
+      - Regression_Tests_Manager
+      - Regression_Tests_Reporter
     uses: ./.github/workflows/Website.yaml
 
   Publish_Package:
@@ -49,6 +49,6 @@ jobs:
     - Package_For_PIP
     # - Regression_Tests
     - Regression_Tests_Agent
-    # - Regression_Tests_Manager
-    # - Regression_Tests_Reporter
+    - Regression_Tests_Manager
+    - Regression_Tests_Reporter
     uses: ./.github/workflows/Publish.yaml
