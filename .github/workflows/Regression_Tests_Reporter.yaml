@@ -201,3 +201,4 @@ jobs:
         with:
           name: reporter-XMLdata-ALL
           pattern: reporter-XMLdata-*
+          retention-days: 3

@@ -161,7 +161,7 @@ jobs:
       - name: Upload XML artifact
         uses: actions/upload-artifact@v4
         with:
-          name: manager-XMLdata-${{ matrix.platform }}-${{ matrix.python }}
+          name: manager-XMLdata-${{ matrix.platform }}-${{ matrix.python }}-${{ matrix.tag }}
           path: Tests/Regression/Manager/Logs/${{ matrix.platform }}_${{ matrix.python }}_${{ matrix.tag }}/output_${{ matrix.platform }}_${{ matrix.python }}_${{ matrix.tag }}.xml
           retention-days: 3
 
@@ -175,3 +175,4 @@ jobs:
         with:
           name: manager-XMLdata-ALL
           pattern: manager-XMLdata-*
+          retention-days: 3

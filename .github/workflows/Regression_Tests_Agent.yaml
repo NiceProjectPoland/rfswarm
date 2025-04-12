@@ -110,3 +110,4 @@ jobs:
         with:
           name: agent-XMLdata-ALL
           pattern: agent-XMLdata-*
+          retention-days: 3
