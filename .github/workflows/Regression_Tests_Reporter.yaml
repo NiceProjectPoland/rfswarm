@@ -180,11 +180,13 @@ jobs:
           retention-days: 90
 
       - name: Change output.xml file name
+        if: ${{ always() }}
         run: >
           mv Tests/Regression/Reporter/Logs/${{ matrix.platform }}_${{ matrix.python }}/output.xml
           Tests/Regression/Reporter/Logs/${{ matrix.platform }}_${{ matrix.python }}/output_${{ matrix.platform }}_${{ matrix.python }}.xml
 
       - name: Upload XML artifact
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: reporter-XMLdata-${{ matrix.platform }}-${{ matrix.python }}
