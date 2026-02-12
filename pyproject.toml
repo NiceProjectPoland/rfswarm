@@ -1,7 +1,7 @@
 [project]
-name = "RFSwarm_development"
+name = "rfswarm-development"
 version = "1.0.0"
-description = "rfswarm dev environment."
+description = "rfswarm dev environment"
 requires-python = ">=3.9,<4.0"
 
 [tool.poetry]
