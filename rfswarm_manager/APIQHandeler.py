@@ -96,7 +96,7 @@ class APIQHandeler():
 					status = "404"
 
 				if task_data["function"] not in self.worker_functions:
-					message = f"Function {task_data["function"]} not supported"
+					message = f"Function {task_data['function']} not supported"
 					status = "404"
 
 				try:
