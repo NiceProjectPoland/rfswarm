@@ -2086,7 +2086,8 @@ Check Reporter with yml Configuration File
 	Take A Screenshot
 
 	# Set Confidence		0.7
-	Locate 	reporter_${PLATFORM}_windowsize_yml.png
+	# Locate 	reporter_${PLATFORM}_windowsize_yml.png
+	Wait For WindowSize Visible 	YML
 	# Set Confidence		0.9
 
 	[Teardown]	Run Keywords
