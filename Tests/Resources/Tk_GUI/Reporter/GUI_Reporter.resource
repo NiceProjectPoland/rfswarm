@@ -58,15 +58,17 @@ Create New Section
 Click Section
 	[Arguments]		${sectname}
 	${sectnamel}= 	Convert To Lower Case 	${sectname}
-	${img}=	Set Variable		reporter_${PLATFORM}_section_${sectnamel}.png
+	# ${img}=	Set Variable		reporter_${PLATFORM}_section_${sectnamel}.png
 	Log		${CURDIR}
  	Log		${IMAGE_DIR}
-	Wait For 	${img} 	 timeout=${DEFAULT_IMAGE_TIMEOUT}
+	# Wait For 	${img} 	 timeout=${DEFAULT_IMAGE_TIMEOUT}
+	${img}=		Wait For Section Visible 	${sectname} 	 timeout=${DEFAULT_IMAGE_TIMEOUT}
 	@{coordinates}= 	Locate		${img}
 	Click Image		${img}
 	Log 	Click Section: ${sectname}
 	Sleep 	0.1
 	[Teardown] 	Run Keyword If 	${DEBUG_SCREENSHOTS} or "${KEYWORD STATUS}" == "FAIL"     Take A Screenshot
+
 
 Select Field With Label
 	[Arguments]		${label} 	${offsetx}=50 	${offsety}=0

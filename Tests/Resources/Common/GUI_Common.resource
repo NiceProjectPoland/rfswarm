@@ -222,6 +222,8 @@ Wait For ${element} Visible
 
 	IF 	${status} is False
 		Fail 	${element} ${expected} still visible
+	ELSE
+		RETURN 	${img}
 	END
 
 	[Teardown] 	Run Keyword If 	${DEBUG_SCREENSHOTS} or "${KEYWORD STATUS}" == "FAIL"     Take A Screenshot
